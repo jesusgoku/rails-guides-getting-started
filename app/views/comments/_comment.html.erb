@@ -1,0 +1,7 @@
+<div class="panel panel-default">
+  <div class="panel-heading">By: <%= comment.commenter %></div>
+  <div class="panel-body"><%= comment.body %></div>
+  <div class="panel-footer text-right">
+    <%= link_to raw('<i class="fa fa-trash"></i> delete'), [comment.article, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<h1>Listing articles</h1>
+
+<%= link_to raw('<i class="fa fa-plus"></i> New article'), new_article_path, class: 'btn btn-sm btn-success' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+    <tr>
+      <td><%= link_to article.title, article_path(article) %></td>
+      <td><%= article.text %></td>
+      <td>
+        <%= link_to raw('<i class="fa fa-pencil"></i> edit'), edit_article_path(article), class: 'btn btn-xs btn-primary' %>
+        <%= link_to raw('<i class="fa fa-trash"></i> delete'), article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
